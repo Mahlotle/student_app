@@ -1,0 +1,14 @@
+/* src/pages/About.css */
+.card {
+    border-radius: 0.5rem;
+  }
+  
+  .card-title {
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  

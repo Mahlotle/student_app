@@ -1,0 +1,87 @@
+/* Home.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(255, 255, 255); /* Light background for a clean look */
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.navbar {
+  background-color: #3c3163; /* Deep blue background */
+  color: #ffffff; /* White text color for contrast */
+  border-bottom: 2px solid #d6d6d6; /* Subtle border for a modern touch */
+}
+
+.navbar-brand {
+  font-size: 2rem; /* Larger font size for better visibility */
+  font-weight: 700; /* Bold font for prominence */
+  color: #ffffff; /* White text color */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow for a modern effect */
+}
+
+.nav-link {
+  font-size: 1.1rem; /* Slightly smaller font size for a cleaner look */
+  color: #ffffff; /* White text color */
+  text-transform: uppercase; /* Uppercase text for a more formal look */
+  margin-right: 15px; /* Spacing between links */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.nav-link:hover {
+  color: #f2a900; /* Highlight color on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5); /* Semi-transparent border for the toggle button */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.navbar-toggler:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light background color on hover */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Welcome Block */
+.welcome-block {
+  background-color: #3a86ff; /* Bright blue background */
+  color: #ffffff; /* White text color for contrast */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners for a softer look */
+  text-align: center; /* Center align text */
+  margin: 20px auto; /* Center the block horizontally with spacing */
+  max-width: 600px; /* Restrict maximum width for better readability */
+}
+
+.welcome-block h1 {
+  font-size: 2rem; /* Larger font size for the heading */
+  margin-bottom: 10px; /* Spacing below the heading */
+}
+
+.welcome-block p {
+  font-size: 1.1rem; /* Slightly larger font size for readability */
+  margin: 0; /* Remove default margin */
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .nav-link {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .welcome-block {
+    padding: 15px; /* Adjust padding for smaller screens */
+    margin: 15px; /* Adjust margin for smaller screens */
+  }
+}

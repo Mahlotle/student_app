@@ -1,0 +1,18 @@
+/* Navbar.css */
+.MuiAppBar-root {
+    border-bottom: 2px solid #d6d6d6; /* Subtle border for a modern touch */
+  }
+  
+  .MuiToolbar-root {
+    display: flex;
+    justify-content: space-between; /* Align items to the left and right */
+  }
+  
+  .MuiButton-root {
+    margin-left: 10px; /* Spacing between buttons */
+  }
+  
+  .MuiTypography-root {
+    font-size: 1.5rem; /* Adjust brand name size */
+  }
+  
