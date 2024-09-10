@@ -5,6 +5,13 @@ import jwt from 'jsonwebtoken'; // For token-based authentication
 import bcrypt from 'bcrypt'; // For password hashing
 import cookieParser from 'cookie-parser'; // For parsing cookies
 
+import dotenv from 'dotenv';
+dotenv.config();
+
+// Database
+import pkg from 'pg';
+const { Client } = pkg;
+
 const app = express();
 
 // Middleware setup
@@ -16,12 +23,22 @@ app.use(cors({
 }));
 app.use(cookieParser());
 
-// DB CONNECTION
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: 'signup' // Database name
+// DB CONNECTION Local
+// const db = mysql.createConnection({
+//     host: process.env.DB_HOST,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+//     database: process.env.DB_DATABASE
+// });
+
+
+// DB Config for hosting
+const db = new Client({
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
+    user: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE
 });
 
 // Connect to the database

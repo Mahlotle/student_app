@@ -68,14 +68,14 @@ function Home() {
         </div>
       </nav>
 
-      <header className="bg-secondary text-white text-center py-4">
+      <header className="bg-dark text-white text-center py-4">
         <div className="container">
           {auth ? (
             <h1 className="display-4">Welcome to EduLink, {name}!</h1>
           ) : (
             <h1 className="display-4">Welcome to EduLink!</h1>
           )}
-          <p className="lead">Your go-to platform for sharing and discussing previous question papers.</p>
+          <p className="lead">Your go-to platform for Exam Prep.</p>
         </div>
       </header>
 
@@ -84,18 +84,19 @@ function Home() {
           <div className="col-md-6 mb-4">
             <div className="card shadow-sm">
               <div className="card-body">
-                <h5 className="card-title">Share Papers</h5>
-                <p className="card-text">Upload your previous question papers to help fellow students.</p>
-                <a href="/upload" className="btn btn-secondary">Upload Now</a>
+                <h5 className="card-title">Upoad and Chat</h5>
+                <p className="card-text">Upload your PDF documents and chat with PDF</p>
+                <a href="https://finalchat-with-pdf-atjlnxqxu4kvees6oj3au7.streamlit.app/" className="btn btn-dark">Upload Now</a>
+
               </div>
             </div>
           </div>
           <div className="col-md-6 mb-4">
             <div className="card shadow-sm">
               <div className="card-body">
-                <h5 className="card-title">Discuss Topics</h5>
-                <p className="card-text">Join discussions on various subjects to enhance your knowledge.</p>
-                <a href="/discuss" className="btn btn-secondary">Join Discussion</a>
+                <h5 className="card-title">Upload&Quiz</h5>
+                <p className="card-text">Upload PDF and create a Quiz to enhance your knowledge.</p>
+                <a href="https://3wdvjimtkknvilg4jkjcp8.streamlit.app/" className="btn btn-dark">Quiz Time</a>
               </div>
             </div>
           </div>

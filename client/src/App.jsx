@@ -4,8 +4,7 @@ import Home from './Home'
 import Register from './Register'
 import Login from './Login'
 import About from './About'
-import Discuss from './Discuss'
-import Upload from './Upload'
+
 
 
 
@@ -19,8 +18,7 @@ function App() {
         <Route path='/register' element ={ <Register />}></Route>
         <Route path='/home' element= { <Home />}></Route>
         <Route path='/About' element= { <About />}></Route>
-        <Route path='/Upload' element= { <Upload />}></Route>
-        <Route path='/Discuss' element= { <Discuss />}></Route>
+
         
       </Routes>
       </BrowserRouter>
