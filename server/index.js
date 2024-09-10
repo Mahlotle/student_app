@@ -31,6 +31,8 @@ app.use(cookieParser());
 //     database: process.env.DB_DATABASE
 // });
 
+// add this for testing
+
 
 // DB Config for hosting
 const db = new Client({
