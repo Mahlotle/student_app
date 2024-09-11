@@ -24,24 +24,24 @@ app.use(cors({
 app.use(cookieParser());
 
 // DB CONNECTION Local
-// const db = mysql.createConnection({
-//     host: process.env.DB_HOST,
-//     user: process.env.DB_USER,
-//     password: process.env.DB_PASSWORD,
-//     database: process.env.DB_DATABASE
-// });
+const db = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
+});
 
 // add this for testing
 
 
 // DB Config for hosting
-const db = new Client({
-    host: process.env.PGHOST,
-    port: process.env.PGPORT,
-    user: process.env.PGUSER,
-    password: process.env.PGPASSWORD,
-    database: process.env.PGDATABASE
-});
+// const db = new Client({
+//     host: process.env.PGHOST,
+//     port: process.env.PGPORT,
+//     user: process.env.PGUSER,
+//     password: process.env.PGPASSWORD,
+//     database: process.env.PGDATABASE
+// });
 
 // Connect to the database
 db.connect(err => {
@@ -157,7 +157,10 @@ app.post('/logout', (req, res) => {
   });
   
 
-// Start the server
-app.listen(8081, () => {
-    console.log("Server running on port 8081...");
+
+// Use PORT from environment variables or fallback to 8081
+const port = process.env.PORT || 8081;
+// 
+app.listen(port, () => {
+    console.log(`Server running on port ${port}...`);
 });
