@@ -26,16 +26,18 @@ app.use(cors({
 }));
 app.use(cookieParser());
 
+// 1
+
 // DB CONNECTION Local
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
-});
+// const db = mysql.createConnection({
+//     host: process.env.DB_HOST,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+//     database: process.env.DB_DATABASE
+// });
 
-// add this for testing
 
+// 2
 
 // DB Config for hosting
 // const db = new Client({
@@ -45,6 +47,16 @@ const db = mysql.createConnection({
 //     password: process.env.PGPASSWORD,
 //     database: process.env.PGDATABASE
 // });
+
+// 3
+
+// DB Config for hosting
+const db = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
 
 // Connect to the database
 db.connect(err => {
