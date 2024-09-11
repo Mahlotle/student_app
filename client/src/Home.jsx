@@ -13,7 +13,7 @@ function Home() {
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    axios.get('http://localhost:8081') // Endpoint to check authentication
+    axios.get('https://student-app-backend-tb0b.onrender.com') // Endpoint to check authentication
       .then(res => {
         if (res.data.Status === "Success") {
           setAuth(true);
@@ -30,7 +30,7 @@ function Home() {
   }, []);
 
   const handleLogout = () => {
-    axios.post('http://localhost:8081/logout')
+    axios.post('https://student-app-backend-tb0b.onrender.com/logout')
       .then(() => {
         setAuth(false);
         setName('');
