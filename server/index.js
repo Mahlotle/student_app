@@ -20,7 +20,7 @@ const app = express();
 // Middleware setup
 app.use(express.json()); 
 app.use(cors({
-    origin: "https://student-app-backend-tb0b.onrender.com", // Ensure this matches the frontend origin
+    origin: "https://student-app-client.onrender.com", // Ensure this matches the frontend origin
     methods: ["POST", "GET"],
     credentials: true
 }));
