@@ -15,7 +15,7 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8081/register', values)
+    axios.post('https://student-app-backend-tb0b.onrender.com/register', values)
       .then(res => {
         if (res.data.Status === "Success") {
           navigate('/'); 
