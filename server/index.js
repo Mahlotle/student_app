@@ -2,7 +2,10 @@ import express from 'express';
 import mysql from 'mysql';
 import cors from 'cors';
 import jwt from 'jsonwebtoken'; // For token-based authentication
-import bcrypt from 'bcrypt'; // For password hashing
+// import bcrypt from 'bcrypt'; // For password hashing
+import bcrypt from 'bcryptjs'; // For password hashin
+
+
 import cookieParser from 'cookie-parser'; // For parsing cookies
 
 import dotenv from 'dotenv';
