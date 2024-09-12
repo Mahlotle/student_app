@@ -23,7 +23,7 @@ function Login() {
     }
 
     try {
-      const res = await axios.post('http://localhost:8081/login', values);
+      const res = await axios.post('https://student-app-backend-tb0b.onrender.com/login', values);
 
       if (res.data.Status === "Success") {
         // Store the user's name in localStorage

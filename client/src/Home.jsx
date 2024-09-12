@@ -8,12 +8,13 @@ function Home() {
   const [auth, setAuth] = useState(false);
   const [message, setMessage] = useState('');
   const [name, setName] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    axios.get('http://localhost:8081') // Endpoint to check authentication
+    axios.get('https://student-app-backend-tb0b.onrender.com') // Endpoint to check authentication
       .then(res => {
         if (res.data.Status === "Success") {
           setAuth(true);
@@ -30,15 +31,18 @@ function Home() {
   }, []);
 
   const handleLogout = () => {
-    axios.post('http://localhost:8081/logout')
+    setLoading(true); // Show loading state when logging out
+    axios.post('https://student-app-backend-tb0b.onrender.com/logout')
       .then(() => {
         setAuth(false);
         setName('');
+        setLoading(false);
         navigate('/'); // Redirect to login page after logout
       })
       .catch(err => {
         console.log(err);
         setMessage("Logout failed");
+        setLoading(false);
       });
   };
 
@@ -60,7 +64,9 @@ function Home() {
               </li>
               {auth && (
                 <li className="nav-item">
-                  <button className="btn btn-danger fs-5" onClick={handleLogout}>Logout</button>
+                  <button className="btn btn-danger fs-5" onClick={handleLogout} disabled={loading}>
+                    {loading ? 'Logging out...' : 'Logout'}
+                  </button>
                 </li>
               )}
             </ul>
@@ -76,6 +82,7 @@ function Home() {
             <h1 className="display-4">Welcome to EduLink!</h1>
           )}
           <p className="lead">Your go-to platform for Exam Prep.</p>
+          {message && <p className="alert alert-warning">{message}</p>}
         </div>
       </header>
 
@@ -84,19 +91,22 @@ function Home() {
           <div className="col-md-6 mb-4">
             <div className="card shadow-sm">
               <div className="card-body">
-                <h5 className="card-title">Upoad and Chat</h5>
+                <h5 className="card-title">Upload and Chat</h5>
                 <p className="card-text">Upload your PDF documents and chat with PDF</p>
-                <a href="https://finalchat-with-pdf-atjlnxqxu4kvees6oj3au7.streamlit.app/" className="btn btn-dark">Upload Now</a>
-
+                <a href="https://finalchat-with-pdf-atjlnxqxu4kvees6oj3au7.streamlit.app/" className="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                  Upload Now
+                </a>
               </div>
             </div>
           </div>
           <div className="col-md-6 mb-4">
             <div className="card shadow-sm">
               <div className="card-body">
-                <h5 className="card-title">Upload&Quiz</h5>
+                <h5 className="card-title">Upload & Quiz</h5>
                 <p className="card-text">Upload PDF and create a Quiz to enhance your knowledge.</p>
-                <a href="https://3wdvjimtkknvilg4jkjcp8.streamlit.app/" className="btn btn-dark">Quiz Time</a>
+                <a href="https://3wdvjimtkknvilg4jkjcp8.streamlit.app/" className="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                  Quiz Time
+                </a>
               </div>
             </div>
           </div>
