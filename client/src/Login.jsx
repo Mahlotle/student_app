@@ -26,10 +26,8 @@ function Login() {
       const res = await axios.post('https://student-app-backend-tb0b.onrender.com/login', values);
 
       if (res.data.Status === "Success") {
-        if (res.data.userName) {
-          // Store the user's name in localStorage if it's part of the response
-          localStorage.setItem('userName', res.data.userName); 
-        }
+        // Store the user's name in localStorage
+        localStorage.setItem('userName', res.data.userName); // Assuming 'userName' is part of the response
         navigate('/home'); // Redirect to home page after successful login
       } else {
         setError(res.data.Error || 'Invalid email or password');
