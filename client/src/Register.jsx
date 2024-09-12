@@ -11,32 +11,19 @@ function Register() {
     password: ''
   });
 
-  const [error, setError] = useState('');
   const navigate = useNavigate(); 
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    // Basic validation
-    if (!values.FName || !values.LName || !values.email || !values.password) {
-      setError('All fields are required.');
-      return;
-    }
-
-    try {
-      const res = await axios.post('https://student-app-backend-tb0b.onrender.com/register', values);
-
-      if (res.data.Status === "Success") {
-        // Optional: Display a success message
-        alert("Registration Successful");
-        navigate('/');  // Redirect to login page after success
-      } else {
-        setError(res.data.Error || 'Registration failed. Please try again.');
-      }
-    } catch (err) {
-      setError('An error occurred during registration. Please try again.');
-      console.error(err);
-    }
+    axios.post('https://student-app-backend-tb0b.onrender.com/register', values)
+      .then(res => {
+        if (res.data.Status === "Success") {
+          navigate('/'); 
+        } else {
+          alert("Error");
+        }
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -47,7 +34,6 @@ function Register() {
             <h2 className="text-dark mb-4 text-center">Sign Up</h2>
 
             <form onSubmit={handleSubmit} className="signup-form">
-              {error && <div className="alert alert-danger">{error}</div>}
               <div className="mb-3">
                 <label htmlFor="f-name" className="form-label text-dark">First Name</label>
                 <input 
@@ -59,7 +45,6 @@ function Register() {
                   value={values.FName}
                   onChange={e => setValues({ ...values, FName: e.target.value })}
                   autoComplete="given-name" 
-                  required
                 />
               </div>
               <div className="mb-3">
@@ -73,7 +58,6 @@ function Register() {
                   value={values.LName}
                   onChange={e => setValues({ ...values, LName: e.target.value })}
                   autoComplete="family-name"
-                  required
                 />
               </div>
               <div className="mb-3">
@@ -87,7 +71,6 @@ function Register() {
                   value={values.email}
                   onChange={e => setValues({ ...values, email: e.target.value })}
                   autoComplete="email"
-                  required
                 />
               </div>
               <div className="mb-3">
@@ -101,12 +84,11 @@ function Register() {
                   value={values.password}
                   onChange={e => setValues({ ...values, password: e.target.value })}
                   autoComplete="new-password"
-                  required
                 />
               </div>
               <button type="submit" className="btn btn-dark w-100">Sign up</button>
               <p className='text-dark text-center'>Terms and Conditions Apply</p>
-              <Link to="/" className="btn btn-outline-dark w-100 mt-2">Login</Link>
+              <Link to="/" className="btn btn-dark w-100">Login</Link>
             </form>
           </div>
         </div>
